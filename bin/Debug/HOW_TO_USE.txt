@@ -56,3 +56,11 @@ projectorc.exe 2 801 gvl. :
 		gvl.bitmapdone
 		...etc
 ```
+
+to quit:
+
+```
+selectscreen := 6464;
+or
+press 'q' at the projector screen.
+```
