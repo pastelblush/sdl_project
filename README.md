@@ -4,22 +4,22 @@ SDL Projector With ADS
 the plc variable needed to control is:
 ```
 
-	selectscreen : INT;   \\to select screen (0 for blank, 1 - 9 for texture, 6464 to quit)
-	bitmapdone:BOOL;  \\ if bitmap has being shown ( signal might be late because of ads, use as ref only)
-	recipewrite : BOOL; \\ to write a recipe
-	recipedone:BOOL;\\ recipe write done
+selectscreen : INT;   \\to select screen (0 for blank, 1 - 9 for texture, 6464 to quit)
+bitmapdone:BOOL;  \\ if bitmap has being shown ( signal might be late because of ads, use as ref only)
+recipewrite : BOOL; \\ to write a recipe
+recipedone:BOOL;\\ recipe write done
 
 
 
-	bmp1 : STRING(80);  path to bitmap stored.
-	bmp2 : STRING(80);
-	bmp3 : STRING(80);
-	bmp4 : STRING(80);
-	bmp5 : STRING(80);
-	bmp6 : STRING(80);
-	bmp7 : STRING(80);
-	bmp8 : STRING(80);
-	bmp9 : STRING(80);
+bmp1 : STRING(80);  path to bitmap stored.
+bmp2 : STRING(80);
+bmp3 : STRING(80);
+bmp4 : STRING(80);
+bmp5 : STRING(80);
+bmp6 : STRING(80);
+bmp7 : STRING(80);
+bmp8 : STRING(80);
+bmp9 : STRING(80);
 
 ```
 
