@@ -22,6 +22,7 @@ the plc variable needed to control is:
 
 
 run using cmd line or create a shortcut:
+
 	projectorc.exe <monitor_number 0 - etc > <adsportno> <prefix_for_variable>
 
 
@@ -36,12 +37,14 @@ projectorc.exe 1 801 main. :
 
 
 projectorc.exe 1 801 main.S2_ :
+
 	so the variable would linked to :
 		main.s2_selectscreen
 		main.s2_bitmapdone
 		...etc
 
 projectorc.exe 2 801 gvl. :
+
 	Port 851 of tc2
 	display to screen 3 (0 would be your main display) 
 	so the variable would linked to :
