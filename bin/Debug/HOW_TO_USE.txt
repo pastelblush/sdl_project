@@ -2,7 +2,7 @@
 SDL Projector With ADS
 
 the plc variable needed to control is:
-'''
+```
 
 	selectscreen : INT;   \\to select screen (0 for blank, 1 - 9 for texture, 6464 to quit)
 	bitmapdone:BOOL;  \\ if bitmap has being shown ( signal might be late because of ads, use as ref only)
@@ -21,18 +21,17 @@ the plc variable needed to control is:
 	bmp8 : STRING(80);
 	bmp9 : STRING(80);
 
-'''
-
+```
 
 run using cmd line or create a shortcut:
-'''
-	projectorc.exe <monitor_number 0 - etc > <adsportno> <prefix_for_variable>
-'''
+```
+projectorc.exe monitor_number adsportno prefix_for_variable
+```
 
 
 eg.
 
-'''
+```
 projectorc.exe 1 801 main. :
 
 	so the variable would linked to :
@@ -56,4 +55,4 @@ projectorc.exe 2 801 gvl. :
 		gvl.selectscreen
 		gvl.bitmapdone
 		...etc
-'''
+```
