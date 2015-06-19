@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1434449715 source:c:\users\muhammadr\desktop\projector\projectorc\main.c
+	<SDL.h>
+	<stdio.h>
+	<iostream.h>
+	<windows.h>
+	<conio.h>
+	<winbase.h>
+	<SDL_thread.h>
+	"C:\TwinCAT\AdsApi\TcAdsDll\Include\TcAdsDef.h"
+	"C:\TwinCAT\AdsApi\TcAdsDll\Include\TcAdsApi.h"
+
+1418973656 c:\twincat\adsapi\tcadsdll\include\tcadsdef.h
+
+1394077048 c:\twincat\adsapi\tcadsdll\include\tcadsapi.h
+
+1434675875 source:c:\users\muhammadr\desktop\xpfolder\projector\projectorc\main.c
+	<SDL.h>
+	<stdio.h>
+	<iostream.h>
+	<windows.h>
+	<conio.h>
+	<winbase.h>
+	<SDL_thread.h>
+	<string.h>
+	"C:\TwinCAT\AdsApi\TcAdsDll\Include\TcAdsDef.h"
+	"C:\TwinCAT\AdsApi\TcAdsDll\Include\TcAdsApi.h"
+
