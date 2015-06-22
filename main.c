@@ -40,8 +40,20 @@ char S[81];
     SDL_Surface *bmpSurface = NULL;
 
 
-    SDL_Texture *bmpTexOptARRAY[10];
 
+
+    SDL_Texture *bmpTex0 = NULL;
+    SDL_Texture *bmpTex1 = NULL;
+    SDL_Texture *bmpTex2 = NULL;
+    SDL_Texture *bmpTex3 = NULL;
+    SDL_Texture *bmpTex4 = NULL;
+    SDL_Texture *bmpTex5 = NULL;
+    SDL_Texture *bmpTex6 = NULL;
+    SDL_Texture *bmpTex7 = NULL;
+    SDL_Texture *bmpTex8 = NULL;
+    SDL_Texture *bmpTex9 = NULL;
+
+    SDL_Texture *bmpTexOptARRAY[10];
 
     //The thread that will be used
     SDL_Thread *thread = NULL;
@@ -74,6 +86,17 @@ char S[81];
 
 
 int main(int argc, char *argv[]) {
+
+    bmpTexOptARRAY[0] = bmpTex0;
+    bmpTexOptARRAY[1] = bmpTex1;
+    bmpTexOptARRAY[2] = bmpTex2;
+    bmpTexOptARRAY[3] = bmpTex3;
+    bmpTexOptARRAY[4] = bmpTex4;
+    bmpTexOptARRAY[5] = bmpTex5;
+    bmpTexOptARRAY[6] = bmpTex6;
+    bmpTexOptARRAY[7] = bmpTex7;
+    bmpTexOptARRAY[8] = bmpTex8;
+    bmpTexOptARRAY[9] = bmpTex9;
 
     char rwrite[30] = "recipewrite";
     char bitdone[30] = "bitmapdone";
@@ -282,16 +305,16 @@ int main(int argc, char *argv[]) {
 
 
 
-    SDL_DestroyTexture(bmpTexOptARRAY[0]);
-    SDL_DestroyTexture(bmpTexOptARRAY[1]);
-    SDL_DestroyTexture(bmpTexOptARRAY[2]);
-    SDL_DestroyTexture(bmpTexOptARRAY[3]);
-    SDL_DestroyTexture(bmpTexOptARRAY[4]);
-    SDL_DestroyTexture(bmpTexOptARRAY[5]);
-    SDL_DestroyTexture(bmpTexOptARRAY[6]);
-    SDL_DestroyTexture(bmpTexOptARRAY[7]);
-    SDL_DestroyTexture(bmpTexOptARRAY[8]);
-    SDL_DestroyTexture(bmpTexOptARRAY[9]);
+    SDL_DestroyTexture((SDL_Texture*)bmpTexOptARRAY[0]);
+    SDL_DestroyTexture((SDL_Texture*)bmpTexOptARRAY[1]);
+    SDL_DestroyTexture((SDL_Texture*)bmpTexOptARRAY[2]);
+    SDL_DestroyTexture((SDL_Texture*)bmpTexOptARRAY[3]);
+    SDL_DestroyTexture((SDL_Texture*)bmpTexOptARRAY[4]);
+    SDL_DestroyTexture((SDL_Texture*)bmpTexOptARRAY[5]);
+    SDL_DestroyTexture((SDL_Texture*)bmpTexOptARRAY[6]);
+    SDL_DestroyTexture((SDL_Texture*)bmpTexOptARRAY[7]);
+    SDL_DestroyTexture((SDL_Texture*)bmpTexOptARRAY[8]);
+    SDL_DestroyTexture((SDL_Texture*)bmpTexOptARRAY[9]);
 
 
     SDL_DestroyRenderer(renderer);
@@ -344,7 +367,7 @@ int my_thread( void *data )
             if(!initflag)
             {
                 SDL_RenderClear(renderer);
-                SDL_RenderCopy(renderer, bmpTexOptARRAY[index] , NULL, NULL);
+                SDL_RenderCopy(renderer, (SDL_Texture*)bmpTexOptARRAY[index] , NULL, NULL);
                 SDL_RenderPresent(renderer);
                 nErr = AdsSyncWriteReq(pAddr, ADSIGRP_SYM_VALBYHND, bitdonehdl,1, &true_desu);
             }
