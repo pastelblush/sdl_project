@@ -53,7 +53,7 @@ char S[81];
     SDL_Texture *bmpTex8 = NULL;
     SDL_Texture *bmpTex9 = NULL;
 
-    SDL_Texture *bmpTexOptARRAY[10];
+    SDL_Texture **bmpTexOptARRAY[10];
 
     //The thread that will be used
     SDL_Thread *thread = NULL;
@@ -87,16 +87,16 @@ char S[81];
 
 int main(int argc, char *argv[]) {
 
-    bmpTexOptARRAY[0] = bmpTex0;
-    bmpTexOptARRAY[1] = bmpTex1;
-    bmpTexOptARRAY[2] = bmpTex2;
-    bmpTexOptARRAY[3] = bmpTex3;
-    bmpTexOptARRAY[4] = bmpTex4;
-    bmpTexOptARRAY[5] = bmpTex5;
-    bmpTexOptARRAY[6] = bmpTex6;
-    bmpTexOptARRAY[7] = bmpTex7;
-    bmpTexOptARRAY[8] = bmpTex8;
-    bmpTexOptARRAY[9] = bmpTex9;
+    bmpTexOptARRAY[0] = &bmpTex0;
+    bmpTexOptARRAY[1] = &bmpTex1;
+    bmpTexOptARRAY[2] = &bmpTex2;
+    bmpTexOptARRAY[3] = &bmpTex3;
+    bmpTexOptARRAY[4] = &bmpTex4;
+    bmpTexOptARRAY[5] = &bmpTex5;
+    bmpTexOptARRAY[6] = &bmpTex6;
+    bmpTexOptARRAY[7] = &bmpTex7;
+    bmpTexOptARRAY[8] = &bmpTex8;
+    bmpTexOptARRAY[9] = &bmpTex9;
 
     char rwrite[30] = "recipewrite";
     char bitdone[30] = "bitmapdone";
@@ -305,16 +305,16 @@ int main(int argc, char *argv[]) {
 
 
 
-    SDL_DestroyTexture((SDL_Texture*)bmpTexOptARRAY[0]);
-    SDL_DestroyTexture((SDL_Texture*)bmpTexOptARRAY[1]);
-    SDL_DestroyTexture((SDL_Texture*)bmpTexOptARRAY[2]);
-    SDL_DestroyTexture((SDL_Texture*)bmpTexOptARRAY[3]);
-    SDL_DestroyTexture((SDL_Texture*)bmpTexOptARRAY[4]);
-    SDL_DestroyTexture((SDL_Texture*)bmpTexOptARRAY[5]);
-    SDL_DestroyTexture((SDL_Texture*)bmpTexOptARRAY[6]);
-    SDL_DestroyTexture((SDL_Texture*)bmpTexOptARRAY[7]);
-    SDL_DestroyTexture((SDL_Texture*)bmpTexOptARRAY[8]);
-    SDL_DestroyTexture((SDL_Texture*)bmpTexOptARRAY[9]);
+    SDL_DestroyTexture(*bmpTexOptARRAY[0]);
+    SDL_DestroyTexture(*bmpTexOptARRAY[1]);
+    SDL_DestroyTexture(*bmpTexOptARRAY[2]);
+    SDL_DestroyTexture(*bmpTexOptARRAY[3]);
+    SDL_DestroyTexture(*bmpTexOptARRAY[4]);
+    SDL_DestroyTexture(*bmpTexOptARRAY[5]);
+    SDL_DestroyTexture(*bmpTexOptARRAY[6]);
+    SDL_DestroyTexture(*bmpTexOptARRAY[7]);
+    SDL_DestroyTexture(*bmpTexOptARRAY[8]);
+    SDL_DestroyTexture(*bmpTexOptARRAY[9]);
 
 
     SDL_DestroyRenderer(renderer);
@@ -367,7 +367,7 @@ int my_thread( void *data )
             if(!initflag)
             {
                 SDL_RenderClear(renderer);
-                SDL_RenderCopy(renderer, (SDL_Texture*)bmpTexOptARRAY[index] , NULL, NULL);
+                SDL_RenderCopy(renderer, *bmpTexOptARRAY[index] , NULL, NULL);
                 SDL_RenderPresent(renderer);
                 nErr = AdsSyncWriteReq(pAddr, ADSIGRP_SYM_VALBYHND, bitdonehdl,1, &true_desu);
             }
@@ -451,23 +451,23 @@ int recipe_thread( void *data )
             }
 
                 bmpSurface = SDL_LoadBMP(pbmp1);
-                bmpTexOptARRAY[1]  = SDL_CreateTextureFromSurface(renderer, bmpSurface);
+                *bmpTexOptARRAY[1]  = SDL_CreateTextureFromSurface(renderer, bmpSurface);
                 bmpSurface = SDL_LoadBMP(pbmp2);
-                bmpTexOptARRAY[2]  = SDL_CreateTextureFromSurface(renderer, bmpSurface);
+                *bmpTexOptARRAY[2]  = SDL_CreateTextureFromSurface(renderer, bmpSurface);
                 bmpSurface = SDL_LoadBMP(pbmp3);
-                bmpTexOptARRAY[3]  = SDL_CreateTextureFromSurface(renderer, bmpSurface);
+                *bmpTexOptARRAY[3]  = SDL_CreateTextureFromSurface(renderer, bmpSurface);
                 bmpSurface = SDL_LoadBMP(pbmp4);
-                bmpTexOptARRAY[4]  = SDL_CreateTextureFromSurface(renderer, bmpSurface);
+                *bmpTexOptARRAY[4]  = SDL_CreateTextureFromSurface(renderer, bmpSurface);
                 bmpSurface = SDL_LoadBMP(pbmp5);
-                bmpTexOptARRAY[5]  = SDL_CreateTextureFromSurface(renderer, bmpSurface);
+                *bmpTexOptARRAY[5]  = SDL_CreateTextureFromSurface(renderer, bmpSurface);
                 bmpSurface = SDL_LoadBMP(pbmp6);
-                bmpTexOptARRAY[6]  = SDL_CreateTextureFromSurface(renderer, bmpSurface);
+                *bmpTexOptARRAY[6]  = SDL_CreateTextureFromSurface(renderer, bmpSurface);
                 bmpSurface = SDL_LoadBMP(pbmp7);
-                bmpTexOptARRAY[7]  = SDL_CreateTextureFromSurface(renderer, bmpSurface);
+                *bmpTexOptARRAY[7]  = SDL_CreateTextureFromSurface(renderer, bmpSurface);
                 bmpSurface = SDL_LoadBMP(pbmp8);
-                bmpTexOptARRAY[8]  = SDL_CreateTextureFromSurface(renderer, bmpSurface);
+                *bmpTexOptARRAY[8]  = SDL_CreateTextureFromSurface(renderer, bmpSurface);
                 bmpSurface = SDL_LoadBMP(pbmp9);
-                bmpTexOptARRAY[9]  = SDL_CreateTextureFromSurface(renderer, bmpSurface);
+                *bmpTexOptARRAY[9]  = SDL_CreateTextureFromSurface(renderer, bmpSurface);
                 SDL_FreeSurface(bmpSurface);
 
                 if(initflag)
