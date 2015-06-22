@@ -6,6 +6,7 @@
 #include <SDL_thread.h>
 #include <string.h>
 
+
 // ADS headers
 #include "C:\TwinCAT\AdsApi\TcAdsDll\Include\TcAdsDef.h"
 #include "C:\TwinCAT\AdsApi\TcAdsDll\Include\TcAdsApi.h"
@@ -269,7 +270,7 @@ int main(int argc, char *argv[]) {
 			 //getch();
 			 while(!q)
              {
-                 ;
+                 SDL_Delay(1000);
              }
 			 q = TRUE;
 
@@ -342,6 +343,7 @@ int my_thread( void *data )
 
     while( !q )
     {
+        SDL_Delay(1);
         while( SDL_PollEvent( &e ) != 0 )
 				{
 					//User requests quit
@@ -382,6 +384,7 @@ int my_thread( void *data )
 int recipe_thread( void *data )
 {
     while(!q){
+            SDL_Delay(1);
         if(recwrite)
         {
             if(!initflag)
