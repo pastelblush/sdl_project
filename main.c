@@ -88,6 +88,8 @@ char S[81];
 
 int main(int argc, char *argv[]) {
 
+    timeBeginPeriod(1);
+
     bmpTexOptARRAY[0] = &bmpTex0;
     bmpTexOptARRAY[1] = &bmpTex1;
     bmpTexOptARRAY[2] = &bmpTex2;
